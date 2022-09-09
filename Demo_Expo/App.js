@@ -1,10 +1,24 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import HomeScreen from './src/screens/HomeScreen';
+
+
+import HomeScreen from './src/screens/1_HomeScreen';
+import Tobe from './src/screens/2_Tobe';
+import DangNhap from './src/screens/3_DangNhap';
+import DangKy from './src/screens/4_DangKy';
+import ComponentsScreen from './src/screens/5_ComponentsScreen';
+import ListScreen from './src/screens/6_ListScreen';
+import Demo1 from './src/components/Demo1';
 
 const navigator = createStackNavigator(
     {
-        Home: HomeScreen
+        Home: HomeScreen,
+        HocTiengAnh: Tobe,
+        Login: DangNhap,
+        Register: DangKy,
+        Components: ComponentsScreen,
+        List: ListScreen,
+        Demo1: Demo1,
     },
     {
         initialRouteName: "Home",

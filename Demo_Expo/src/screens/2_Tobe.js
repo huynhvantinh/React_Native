@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { WebView } from "react-native-webview";
 
-const HomeScreen = () => {
+const HocTiengAnh = () => {
     console.log("Chào react native nha");
     return (
         // <WebView
@@ -33,4 +33,4 @@ const HomeScreen = () => {
     );
 };
 
-export default HomeScreen;
+export default HocTiengAnh;
