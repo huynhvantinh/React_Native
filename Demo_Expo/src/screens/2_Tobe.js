@@ -17,7 +17,8 @@ const HocTiengAnh = () => {
         <WebView
             source={{
                 // uri: 'https://tobe.edu.vn/'
-                uri: 'https://test.tobe.edu.vn/'
+                // uri: 'https://test.tobe.edu.vn/'
+                uri: 'https://voca.vn/'
                 // uri: 'https://hoctuvung2.local/'
                 // uri: 'http://192.168.1.140/TruongKHTN/test_webview.php' //OK
                 // uri: 'https://192.168.1.140' //Tải tới trang Laravel nên không được vì lỗi took too long to respond
