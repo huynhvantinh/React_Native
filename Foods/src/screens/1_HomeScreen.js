@@ -1,10 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, View, Button, TouchableOpacity } from "react-native";
 
-// const HomeScreen = ({ navigation }) => { //OK
-const HomeScreen = (props) => { //OK
-    console.log(props);
-    const { navigation } = props;
+const HomeScreen = ({ navigation }) => {
     console.log("React Native nha")
     return (
         <View style={styles.allPage}>

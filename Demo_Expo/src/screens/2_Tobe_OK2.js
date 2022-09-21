@@ -1,31 +1,34 @@
 import React, { Component } from "react";
-import { View, Text ,StyleSheet, StatusBar } from "react-native";
-import { SafeAreaView, SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
+import { View, Text ,StyleSheet, SafeAreaView, StatusBar } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
+import {Constants} from "expo-constants";
 
 const HocTiengAnh = () => {
     console.log("Chào react native nha");
     
     //Cách thay đổi màu sắc của status bar: https://stackoverflow.com/questions/39297291/how-to-set-ios-status-bar-background-color-in-react-native
+    //cách này không dùng đến SafeAreaView
     const insets = useSafeAreaInsets();
+    const topbarr = Constants.statusBarHeight;
     return (
-        <SafeAreaProvider >
-            <View style={{ height:insets.top, backgroundColor:"#FFF" }}>
-                <StatusBar animated={true} backgroundColor="#FFF" barStyle="dark-content" />
+        <View style={{ flex:1 }} >
+            {/* <View style={{ height:insets.top, backgroundColor: '#FFF' }}> */}
+            <View style={{ height: Constants.statusBarHeight, backgroundColor: '#FFF' }}>
+                {/* <StatusBar translucent barStyle="light-content" /> */}
+                <StatusBar translucent />
             </View>
 
             <View style={styles.webContent}>
                 <WebView
                     source={{
-                        // uri: 'https://tobe.edu.vn/'
-                        // uri: 'https://maintain.tobe.edu.vn/'
-                        //Mỗi lần dùng ngrok thì mở file ngrok.exe lên rồi chạy lệnh: ngrok http https://localhost hoặc  ngrok http https://hoctuvung2.local (Dù chạy lệnh nào thì bên Apache đều phải cấu hình lại vhost sao cho localhost trỏ về thư mục dự án Laravel)
-                        uri: 'https://d86d-2405-4802-90f1-9e70-d017-cb7e-a58a-bdfc.ap.ngrok.io'                 
+                        uri: 'https://tobe.edu.vn/'
+                        // uri: 'https://test.tobe.edu.vn/'
                         // uri: 'https://voca.vn/'
                     }}
                 />
             </View>
-        </SafeAreaProvider>
+        </View>
         
     );
 };
@@ -41,6 +44,10 @@ HocTiengAnh.navigationOptions = () => {
 const styles = StyleSheet.create({
     webContent: {
         flex:1,
+    },
+    statusBarStyle: {
+        // height: Constants.statusBarHeight, //CHƯA ĐƯỢC NÊN DÙNG insets.top
+        
     }
 });
 
