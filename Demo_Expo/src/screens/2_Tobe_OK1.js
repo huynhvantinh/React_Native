@@ -1,19 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import { View, Text ,StyleSheet, StatusBar } from "react-native";
-import { SafeAreaView, SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-navigation";
 import { WebView } from "react-native-webview";
 
 const HocTiengAnh = () => {
     console.log("Chào react native nha");
     
-    //Cách thay đổi màu sắc của status bar: https://stackoverflow.com/questions/39297291/how-to-set-ios-status-bar-background-color-in-react-native
-    const insets = useSafeAreaInsets();
+    //Xem video 32.Safe Area Views.p4 trong bài 16.In-app Authentication
+    
     return (
-        <SafeAreaProvider >
-            <View style={{ height:insets.top, backgroundColor:"#FFF" }}>
-                <StatusBar animated={true} backgroundColor="#FFF" barStyle="dark-content" />
-            </View>
-
+        <SafeAreaView forceInset={{ top:"always" }} style={{ flex:1, color:"#FFF" }}>
             <View style={styles.webContent}>
                 <WebView
                     source={{
@@ -25,7 +21,7 @@ const HocTiengAnh = () => {
                     }}
                 />
             </View>
-        </SafeAreaProvider>
+        </SafeAreaView>
         
     );
 };

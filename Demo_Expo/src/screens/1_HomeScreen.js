@@ -49,6 +49,18 @@ const HomeScreen = (props) => { //OK
 				onPress={() => navigation.navigate("LayoutDemoScreen")}
                 title="9. Go to Layout Demo Screen"
 			/>
+
+            <Button
+				onPress={() => navigation.navigate("ReactNativeElement")}
+                title="10. Go to ReactNativeElement"
+			/>
+
+            <Button
+				onPress={() => navigation.navigate("ClassComponent")}
+                title="11. Class Component"
+			/>
+
+
         </View>
     );
 };
