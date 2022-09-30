@@ -20,12 +20,18 @@ const Button_Reusable = (props) => {
 
 const styles = StyleSheet.create({
     buttonTextStyle:{
-        color:"#007aff"
+        color:"#007aff",
+        alignSelf:'center',
+        fontSize:16,
+        fontWeight:'600'
 
     },
     buttonStyle:{
+        // flex:1,
+        alignSelf:'center',
         borderWidth:1,
         borderColor:"#007aff",
+        backgroundColor:'#fff',
         borderRadius:5,
         padding:10,
         width:200,
