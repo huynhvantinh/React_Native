@@ -41,4 +41,12 @@ const navigator = createStackNavigator(
     }
 );
 
-export default createAppContainer(navigator);
+// export default createAppContainer(navigator);// OK
+
+//Cách viết này thì dễ thêm vào các Provider hơn
+const App = createAppContainer(navigator);
+export default ()=>{
+    return (
+        <App/>
+    )
+};

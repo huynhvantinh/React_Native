@@ -8,7 +8,7 @@ const Input_Reusable = (props) => {
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={styles.container}
         >
-        <TextInput autoCorrect={false} autoCapitalize="none" style={ styles.InputStyle} />
+            <TextInput autoCorrect={false} autoCapitalize="none" style={ styles.InputStyle} />
         </KeyboardAvoidingView>
     );
 }
