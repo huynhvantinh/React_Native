@@ -4,18 +4,18 @@ import { View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, Touc
 const KeyboardAvoidingComponent = () => {
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.inner}>
-          <Text style={styles.header}>Header</Text>
-          <TextInput placeholder="Username" style={styles.textInput} />
-          <View style={styles.btnContainer}>
-            <Button title="Submit" onPress={() => null} />
-          </View>
-        </View>
-      </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.inner}>
+            <Text style={styles.header}>Header</Text>
+            <TextInput placeholder="Username" style={styles.textInput} />
+            <View style={styles.btnContainer}>
+                <Button title="Submit" onPress={() => null} />
+            </View>
+            </View>
+        </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 };

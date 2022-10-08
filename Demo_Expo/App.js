@@ -14,6 +14,7 @@ import LayoutDemoScreen from './src/screens/9_LayoutDemoScreen_5';
 import ReactNativeElement from './src/screens/10_React_Native_Element_2';
 import ClassComponent from './src/screens/11_Class_Component';
 import Demo1 from './src/components/Demo1';
+import ComponentInComponent from './src/screens/5_2_Component_in_Component';
 
 
 const navigator = createStackNavigator(
@@ -23,6 +24,7 @@ const navigator = createStackNavigator(
         Login: DangNhap,
         Register: DangKy,
         Components: ComponentsScreen,
+        ComponentInComponent,
         List: ListScreen,
         ColorScreen: ColorScreen,
         InputDemoScreen: InputDemoScreen,
@@ -41,7 +43,7 @@ const navigator = createStackNavigator(
     }
 );
 
-// export default createAppContainer(navigator);// OK
+// export default createAppContainer(navigator);// OK - createAppContainer(navigator) trả ra một react component - Xem video 5 bài 12
 
 //Cách viết này thì dễ thêm vào các Provider hơn
 const App = createAppContainer(navigator);

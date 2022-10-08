@@ -7,6 +7,11 @@ import ShowScreen from './src/screens/ShowScreen';
 import CreateScreen from './src/screens/CreateScreen';
 import EditScreen from './src/screens/EditScreen';
 
+/**
+ * Dùng với src_2 - Copy Bài của Stephen ở Cuối bài 13, CÓ dùng đến API
+ */
+
+
 const navigator = createStackNavigator(
   {
     Index: IndexScreen,
@@ -22,7 +27,7 @@ const navigator = createStackNavigator(
   }
 );
 
-const App = createAppContainer(navigator);
+const App = createAppContainer(navigator); //createAppContainer(navigator) trả ra một react component - Xem video 5 bài 12
 
 export default () => {
   return (

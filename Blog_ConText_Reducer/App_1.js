@@ -6,6 +6,11 @@ import { Provider } from "./src/context/BlogContext";
 import ShowScreen from "./src/screens/ShowScreen";
 import CreateScreen from "./src/screens/CreateScreen";
 
+/**
+ * Dùng với src_1 - Copy Bài của Stephen ở Cuối bài 12, chưa dùng đến API
+ */
+
+
 const navigator = createStackNavigator(
 	{
 		Index: IndexScreen,
@@ -20,7 +25,7 @@ const navigator = createStackNavigator(
 	}
 );
 
-const App = createAppContainer(navigator);
+const App = createAppContainer(navigator); //createAppContainer(navigator) trả ra một react component - Xem video 5 bài 12
 
 export default () => {
 	return (

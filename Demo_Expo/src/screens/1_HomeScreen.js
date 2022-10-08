@@ -30,6 +30,11 @@ const HomeScreen = (props) => { //OK
 				title="5. Go to Components Demo"
 			/>
 
+            <Button
+				onPress={() => navigation.navigate("ComponentInComponent")}
+				title="5_2. ComponentInComponent"
+			/>
+
 			<Button
 				onPress={() => navigation.navigate("List")}
                 title="6. Go to List Demo"
