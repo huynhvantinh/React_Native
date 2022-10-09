@@ -27,7 +27,8 @@ const EditScreen = ({ navigation }) => {
     }
 
     function editOneBlog({tieuDe, noiDung, callbackResetInput}){
-        valueBlogContext.editOneBlog({edited_id: navigation.getParam('id'), newTieuDe: tieuDe, newNoiDung: noiDung, callbackGoToShowScreen: goToShowScreen, callbackResetInput});
+        // valueBlogContext.editOneBlogAPI({edited_id: navigation.getParam('id'), newTieuDe: tieuDe, newNoiDung: noiDung, callbackGoToShowScreen: goToShowScreen, callbackResetInput});
+        valueBlogContext.editOneBlogAPI_2({edited_id: navigation.getParam('id'), newTieuDe: tieuDe, newNoiDung: noiDung, callbackGoToShowScreen: goToShowScreen, callbackResetInput});
     }
 
     /*useEffect(() => {

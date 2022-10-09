@@ -17,8 +17,9 @@ const BlogPostForm = ({ onSubmit, initialValues, title }) => {
 
     function resetInput(){
         console.log("Vao function resetInput");
-        setNoiDung(""); 
+        setNoiDung("");
         setTieuDe("");
+        console.log("noiDung = " + noiDung);
     }
 
     /*useEffect(() => {

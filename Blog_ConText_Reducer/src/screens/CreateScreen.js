@@ -8,28 +8,15 @@ const CreateScreen = ({navigation}) => {
     console.log("Trang Create");
     const valueBlogContext = useContext(BlogContext)
 
-    function changeTieuDeHandle(text){
-        // console.log(text);
-        setTieuDe(text);
-    }
-
-    function changeNoiDungHandle(text){
-        setNoiDung(text);
-    }
-
-    function resetInput(){
-        console.log("Vao function resetInput");
-        setNoiDung(""); 
-        setTieuDe("");
-    }
     function goToIndexScreen(){
         console.log("Vao function goToIndexScreen");
         navigation.navigate("Index");
     }
 
     function addOneBlog({tieuDe, noiDung, callbackResetInput}){
-        valueBlogContext.addOneBlog({tieuDe, noiDung, callbackResetInput, callbackGoToIndexScreen: goToIndexScreen});
-
+        // valueBlogContext.addOneBlogAPI({tieuDe, noiDung, callbackResetInput, callbackGoToIndexScreen: goToIndexScreen});//OK - cách này thì không phải bổ sung event didFocus trong useEffect bên trang Index
+        // valueBlogContext.addOneBlogAPI_2({tieuDe, noiDung, callbackResetInput, callbackGoToIndexScreen: goToIndexScreen});//OK - phải bổ sung event didFocus trong useEffect bên trang Index
+        valueBlogContext.addOneBlogAPI_3({tieuDe, noiDung, callbackResetInput, callbackGoToIndexScreen: goToIndexScreen});//OK - Giống cách addOneBlogAPI - KHÔNG CẦN sung event didFocus trong useEffect bên trang Index
     }
 
     useEffect(() => {
@@ -49,14 +36,14 @@ const CreateScreen = ({navigation}) => {
             <Button onPress={()=> navigation.navigate('Edit')} title="Trang Edit"/>
             <Button onPress={()=> navigation.navigate('Demo')} title="Trang Demo"/>
 
-            {/* RẤT OK <BlogPostForm initialValues={{ tieuDe:"", noiDung:""}} onSubmit={addOneBlog} title="Create Blog" /> */}
-            <BlogPostForm 
+            <BlogPostForm initialValues={{ tieuDe:"", noiDung:""}} onSubmit={addOneBlog} title="Create Blog" />
+            {/* <BlogPostForm 
                 initialValues={{ tieuDe:"", noiDung:""}} 
                 title="Add new Blog" 
                 onSubmit={({tieuDe, noiDung, callbackResetInput})=>{
                     valueBlogContext.addOneBlog({tieuDe, noiDung, callbackResetInput, callbackGoToIndexScreen: goToIndexScreen})
                 }} 
-            />
+            /> */}
             {/*  Nếu ở đây không truyền initialValues thì bên BlogPostForm sẽ lấy giá trị mặc định được thiết lập tại BlogPostForm.defaultProps */}
             {/* <BlogPostForm onSubmit={addOneBlog} title="Create Blog" /> */}
         </View>
