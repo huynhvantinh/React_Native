@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity} from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import axios from "axios";
-import global_data from '../global_data';
 
 import {Context as BlogContext} from '../context/BlogContext/Blog_Context_UseReducer';
 
@@ -10,14 +9,12 @@ import {Context as BlogContext} from '../context/BlogContext/Blog_Context_UseRed
 
 const IndexScreen = ({navigation}) => {
     console.log("Trang Index");
-    console.log("global_data trong Trang Index: ", global_data);
     const valueBlogContext = useContext(BlogContext);
 
 
     //CÁCH 0 - OK - CHỌN CÁCH NÀY
     useEffect(() => {
-        console.log("Trang Index Mount- Load API");
-        console.log(valueBlogContext.state);
+        console.log("Trang Index Mount- Load API");   
         valueBlogContext.loadBlogsAPI();
 
         //Nếu dùng addOneBlogAPI_2 khi thêm Blog thì phải bổ sung đoạn này, còn nếu dùng addOneBlogAPI thì khóa lại
