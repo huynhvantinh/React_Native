@@ -19,7 +19,7 @@ import ClassComponentWithThis from './src/screens/12_Class_Component_With_This';
 import TobeTest from './src/screens/2_Tobe_TEST4';
 
 /**
- * App_dung_de_thu_nghiem.js
+ * App_OK_dung_de_thu_nghiem.js
  */
 
 const navigator = createStackNavigator(
