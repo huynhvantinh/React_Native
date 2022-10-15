@@ -9,7 +9,7 @@ import global_data from "./src/global_data";
 
 
 /**
- * App_17.jsThử nghiệm global data
+ * Thử nghiệm global data
  */
 
 const navigator = createStackNavigator(
@@ -27,6 +27,12 @@ const navigator = createStackNavigator(
 
 const Router = createAppContainer(navigator); //createAppContainer(navigator) trả ra một react component - Xem video 5 bài 12
 
+function Demo1(){
+	return <Text>HIHIHIHIHIHIHIHIHIHIHIHI</Text>
+}
+const demo2 = <Text>Demo2</Text>;
+const demo3 = Demo1();
+
 const App = () => {
 
 	//Đây là function Component nên ở đây có thể initial cho các cấu hình Firebase
@@ -41,7 +47,16 @@ const App = () => {
 	}, []);
 
 	return (
-		<Router />
+		//<Router /> //OK 
+		//{Router} //KHÔNG ĐƯỢC 
+		<>
+			{/* {demo1} //KHÔNG ĐƯỢC*/}
+			<Demo1/>
+			{demo2}
+			{demo3}
+			{/* {Router} //KHÔNG ĐƯỢC  */}
+			<Router />
+		</>
 	);
 }
 

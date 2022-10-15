@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, ScrollView } from "react-native";
 import Demo1 from "../components/Demo1";
 import Button_Reusable from "../components/Button_Reusable";
 import Input_Reusable from "../components/Input_Reusable";
+import Input_Reusable_With_State from "../components/Input_Reusable_With_State";
 
 const ComponentsScreen = (props) => {
     console.log("Vào 5.Components Screen");
@@ -19,9 +20,10 @@ const ComponentsScreen = (props) => {
             {/* <Demo1 navigation = {props.navigation}/> */}
             
             {/* Không truyền biến navigation vào Demo1 nhưng bên trong Demo1 vẫn thấy được biến navagion nếu như dùng withNavigation */}
-            <Demo1/>
+            {/* <Demo1/>
             <Button_Reusable onPress={ ()=>{console.log("Đây là onclick của Button_Reusable")} }>Click Me</Button_Reusable>
-            <Input_Reusable />
+            <Input_Reusable /> */}
+            <Input_Reusable_With_State />
         </ScrollView>
         </View>
         

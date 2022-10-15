@@ -14,6 +14,11 @@ const HomeScreen = (props) => { //OK
 				onPress={() => navigation.navigate("HocTiengAnh")}
 				title="2. Học Tiếng Anh"
 			/>
+            
+            <Button
+				onPress={() => navigation.navigate("TobeTest")}
+				title="2. TobeTest"
+			/>
 
             <Button
 				onPress={() => navigation.navigate("Login")}
@@ -63,6 +68,11 @@ const HomeScreen = (props) => { //OK
             <Button
 				onPress={() => navigation.navigate("ClassComponent")}
                 title="11. Class Component"
+			/>
+
+            <Button
+				onPress={() => navigation.navigate("ClassComponentWithThis")}
+                title="12. Class Component With This"
 			/>
 
 

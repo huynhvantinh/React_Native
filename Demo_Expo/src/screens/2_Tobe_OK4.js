@@ -1,11 +1,19 @@
 import React from "react";
-import { View, SafeAreaView, StyleSheet } from "react-native";
+import { View, SafeAreaView ,StyleSheet, StatusBar } from "react-native";
+import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
 
 const HocTiengAnh = () => {
     console.log("Chào react native nha");
+    
+    //Cách thay đổi màu sắc của status bar: https://stackoverflow.com/questions/39297291/how-to-set-ios-status-bar-background-color-in-react-native
+    const insets = useSafeAreaInsets();
     return (
-        <View style={styles.webContent}>
+        <>
+            <View style={{ height:insets.top, backgroundColor:"#FFF" }}>
+                <StatusBar animated={true} backgroundColor="#FFF" barStyle="dark-content" />
+            </View>
+
             <SafeAreaView style={{ flex:1 }}>
                 <WebView
                     source={{
@@ -13,7 +21,8 @@ const HocTiengAnh = () => {
                     }}
                 />
             </SafeAreaView>
-        </View>
+        </>
+        
     );
 };
 
@@ -30,7 +39,6 @@ HocTiengAnh.navigationOptions = () => {
 const styles = StyleSheet.create({
     webContent: {
         flex:1,
-        backgroundColor:"#FFF" //Không có cái này thì status bar có màu xám, giống như khi dùng Webview kết hợp với Navigation thì mặc định toàn bộ nền là màu xám nên làm cho phía trên statusbar có màu xám
     }
 });
 
