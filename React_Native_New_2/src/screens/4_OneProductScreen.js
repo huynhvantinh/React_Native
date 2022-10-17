@@ -1,23 +1,21 @@
 import React from "react";
-import { View, Button, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, Text, Button } from "react-native";
 
-
-const AboutScreen = ({navigation}) => {
+const OneProductScreen = ({ navigation }) => {
 	return (
 		<View style={styles.center}>
-			<Text style={styles.text}>About screen</Text>
-			
+			<Text style={styles.text}>4_OneProduct Screen</Text>
+
 			{/* Các nút bấm thử nghiệm */}
 			{/* Khi ở trang About mà trỏ tới NestedDrawer thì không hoạt động dược trong khi ở trang 4_OneProductScreen thì lại được */}
-			<Button title="NestedDrawer - KHÔNG HOẠT ĐỘNG" onPress={() => navigation.navigate("NestedDrawer")} />
+			<Button title="NestedDrawer - OK, còn bên trang About thì không" onPress={() => navigation.navigate("NestedDrawer")} />
 			<Button title="AllCategoryDrawer" onPress={() => navigation.navigate("AllCategoryDrawer")} />
 			<Button title="AllCategoryBlogDrawer" onPress={() => navigation.navigate("AllCategoryBlogDrawer")} />
-			<Button title="ListProduct" onPress={() => navigation.navigate("ListProduct")} />
 		</View>
 	);
 };
 
-export default AboutScreen;
+export default OneProductScreen;
 
 const styles = StyleSheet.create({
 	center: {
@@ -31,3 +29,4 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
     }
 });
+

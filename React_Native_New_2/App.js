@@ -1,28 +1,21 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { MainStackNavigator, ContactStackNavigator, StackNavigatorTest, StackNavigatorTest2, StackNavigatorTest3 } from "./src/navigations/StackNavigator";
-import {BottomTabNavigator, BottomTabNavigator2} from './src/navigations/BottomTabNavigator';
-import { DrawerNavigator, DrawerNavigator2, DrawerNavigator3 } from "./src/navigations/DrawerNavigator";
+import { StackNavigator1, StackNavigator2, StackNavigator3, StackNavigator5 } from "./src/navigations/StackNavigator";
+import SwipeEvent from "./src/screens/SwipeEvent";
 
 const App = () => {
 	return (
 		<NavigationContainer>
-            {/* Chỉ bật 1 trong 3 */}
-			{/* <MainStackNavigator/> */}
-			{/* <ContactStackNavigator/> */}
-            {/* <BottomTabNavigator/> */}
-            {/* <BottomTabNavigator2/> */}
-            {/* <DrawerNavigator /> */}
-            {/* <DrawerNavigator2 /> */}
-            {/* <DrawerNavigator3 /> */}
+            {/* <StackNavigator1/> */}
 
-            {/* <StackNavigatorTest /> */}
-            {/* <StackNavigatorTest2 /> */}
-            
-            {/* Hay Dùng - Cách dưới mới là hay dùng*/}
-            <StackNavigatorTest3 />
-            
+            {/* Hay Dùng */}
+            {/* <StackNavigator2/> */}
+            {/* <StackNavigator3/> */}
+
+            {/* HAY - kết hợp cả ba Navigator là Stack, Drawer và BottomTab (trong đó ở phần BottomTab có ứng dụng sự kiện swipe) */}
+            <StackNavigator5/>
+            {/* <SwipeEvent/> */}
 		</NavigationContainer>
 	);
 };

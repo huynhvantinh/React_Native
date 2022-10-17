@@ -1,39 +1,34 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import { ContactStackNavigator, ProductStackNavigator, StackNavigatorTest3 } from "./StackNavigator";
-import { BottomTabNavigator } from "./BottomTabNavigator";
+import AllCategoryScreen from "../screens/1_AllCategoryScreen";
 import AboutScreen from "../screens/AboutScreen";
 import ContactScreen from "../screens/ContactScreen";
 
-const Drawer = createDrawerNavigator();
+import AllCategoryBlogScreen from "../screens/5_AllCategoryBlogScreen";
 
-const DrawerNavigator = () => {
-	return (
-		<Drawer.Navigator>
-			<Drawer.Screen name="HomeDrawer" component={BottomTabNavigator} />
-			<Drawer.Screen name="ContactDrawer" component={ContactStackNavigator} />
-		</Drawer.Navigator>
-	);
-};
+const Drawer = createDrawerNavigator();
 
 const DrawerNavigator2 = () => {
 	return (
-		<Drawer.Navigator>
-			<Drawer.Screen name="ProductDrawer" component={ProductStackNavigator} />
-			<Drawer.Screen name="ContactDrawer" component={ContactStackNavigator} />
+		<Drawer.Navigator initialRouteName="AllCategoryDrawer">
+			<Drawer.Screen name="AllCategoryDrawer" component={AllCategoryScreen}  options={{ title:"All Category" }}/>
+			<Drawer.Screen name="AboutDrawer" component={AboutScreen} options={{ title:"About" }}/>
+			<Drawer.Screen name="ContactDrawer" component={ContactScreen} options={{ title:"Contact" }}/>
 		</Drawer.Navigator>
 	);
 };
+
 
 const DrawerNavigator3 = () => {
 	return (
-		<Drawer.Navigator>
-			<Drawer.Screen name="ContactDrawer" component={ContactScreen} />
-			{/* <Drawer.Screen name="ContactDrawer" component={ContactStackNavigator} /> */}
-			<Drawer.Screen name="AboutDrawer" component={AboutScreen} />
+		<Drawer.Navigator initialRouteName="AllCategoryDrawer">
+			<Drawer.Screen name="AllCategoryDrawer" component={AllCategoryScreen}  options={{ title:"All Category" }}/>
+			<Drawer.Screen name="AllCategoryBlogDrawer" component={AllCategoryBlogScreen} options={{ title:"All Category BLOG" }}/>
+			<Drawer.Screen name="AboutDrawer" component={AboutScreen} options={{ title:"About" }}/>
+			<Drawer.Screen name="ContactDrawer" component={ContactScreen} options={{ title:"Contact" }}/>
 		</Drawer.Navigator>
 	);
 };
 
-export { DrawerNavigator, DrawerNavigator2, DrawerNavigator3 };
+export { DrawerNavigator2, DrawerNavigator3 };

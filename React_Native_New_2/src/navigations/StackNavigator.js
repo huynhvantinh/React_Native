@@ -1,16 +1,19 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-//import { createStackNavigator } from "@react-navigation/stack"; //Nếu dùng thư viện stack thay cho native-stack
 
-import HomeScreen from "../screens/HomeScreen";
-import AboutScreen from "../screens/AboutScreen";
-import ContactScreen from "../screens/ContactScreen";
+import AllCategoryScreen from "../screens/1_AllCategoryScreen";
+import OneCategoryScreen from "../screens/2_OneCategoryScreen";
+import ListProductScreen from "../screens/3_ListProductScreen";
+import OneProductScreen from "../screens/4_OneProductScreen";
 import ContactDetailScreen from "../screens/ContactDetailScreen";
-import ProductScreen from "../screens/ProductScreen";
-import ProductDetailScreen from "../screens/ProductDetailScreen";
 
-import {BottomTabNavigator2, BottomTabNavigator3} from "./BottomTabNavigator";
-import { DrawerNavigator3 } from "./DrawerNavigator";
+import AllCategoryBlogScreen from "../screens/5_AllCategoryBlogScreen";
+import OneCategoryBlogScreen from "../screens/6_OneCategoryBlogScreen";
+import ListBlogScreen from "../screens/7_ListBlogScreen";
+import OneBlogScreen from "../screens/8_OneBlogScreen";
+
+import { DrawerNavigator2, DrawerNavigator3 } from "./DrawerNavigator";
+import { BottomTabNavigator1 } from "./BottomTabNavigator";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,63 +25,69 @@ const screenOptionStyle = {
 	headerBackTitle: "Back"
 };
 
-const MainStackNavigator = () => {
+const StackNavigator1 = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="HomeStack" component={HomeScreen} />
-			<Stack.Screen name="AboutStack" component={AboutScreen} />
+			<Stack.Screen name="AllCategory" component={AllCategoryScreen} />
+			<Stack.Screen name="OneCategory" component={OneCategoryScreen} />
+			<Stack.Screen name="ListProduct" component={ListProductScreen} />
+			<Stack.Screen name="OneProduct" component={OneProductScreen} />
 		</Stack.Navigator>
 	);
 };
 
-const ContactStackNavigator = () => {
+const StackNavigator2 = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="ContactStack" component={ContactScreen} />
-			<Stack.Screen name="ContactDetailStack" component={ContactDetailScreen} />
+			<Stack.Screen name="NestedDrawer" component={DrawerNavigator2} options={{ headerShown:false }}/>
+			<Stack.Screen name="OneCategory" component={OneCategoryScreen} />
+			<Stack.Screen name="ListProduct" component={ListProductScreen} />
+			<Stack.Screen name="OneProduct" component={OneProductScreen} />
+			{/* HAY - thêm ContactDetailScreen vô Stack nhưng lại được truy cập đến từ Screen Contact bên trong DrawerNavigator1 */}
+			<Stack.Screen name="ContactDetail" component={ContactDetailScreen} />
 		</Stack.Navigator>
 	);
 };
 
-const ProductStackNavigator = () => {
+const StackNavigator3 = () => {
 	return (
 		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="ProductStack" component={ProductScreen} />
-			<Stack.Screen name="ProductDetailStack" component={ProductDetailScreen} />
+			<Stack.Screen name="NestedDrawer" component={DrawerNavigator3} options={{ headerShown:false }}/>
+			<Stack.Screen name="OneCategory" component={OneCategoryScreen} />
+			<Stack.Screen name="ListProduct" component={ListProductScreen} />
+			<Stack.Screen name="OneProduct" component={OneProductScreen} />
+			{/* HAY - thêm ContactDetailScreen vô Stack nhưng lại được truy cập đến từ Screen Contact bên trong DrawerNavigator1 */}
+			<Stack.Screen name="ContactDetail" component={ContactDetailScreen} />
+
+			{/* Thêm các trang liên quan đến Blog vào trong stack */}
+			{/* <Stack.Screen name="AllCategoryBlog" component={AllCategoryBlogScreen} /> KHÓA LẠI VẪN KHÔNG ĐỔI */}
+			<Stack.Screen name="OneCategoryBlog" component={OneCategoryBlogScreen} />
+			<Stack.Screen name="ListBlog" component={ListBlogScreen} />
+			<Stack.Screen name="OneBlog" component={OneBlogScreen} />
+		</Stack.Navigator>
+	);
+};
+
+//kết hợp cả ba Navigator là Stack, Drawer và BottomTab (trong đó ở phần BottomTab có ứng dụng sự kiện swipe)
+const StackNavigator5 = () => {
+	return (
+		<Stack.Navigator screenOptions={screenOptionStyle}>
+			<Stack.Screen name="NestedDrawer" component={DrawerNavigator3} options={{ headerShown:false }}/>
+			<Stack.Screen name="OneCategory" component={OneCategoryScreen} />
+			<Stack.Screen name="ListProduct" component={ListProductScreen} />
+			<Stack.Screen name="OneProduct" component={OneProductScreen} />
+			{/* HAY - thêm ContactDetailScreen vô Stack nhưng lại được truy cập đến từ Screen Contact bên trong DrawerNavigator1 */}
+			<Stack.Screen name="ContactDetail" component={ContactDetailScreen} />
+
+			{/* Thêm các trang liên quan đến Blog vào trong stack */}
+			{/* <Stack.Screen name="AllCategoryBlog" component={AllCategoryBlogScreen} /> KHÓA LẠI VẪN KHÔNG ĐỔI */}
+			<Stack.Screen name="OneCategoryBlog" component={OneCategoryBlogScreen} />
+			<Stack.Screen name="ListBlog" component={ListBlogScreen} />
+			<Stack.Screen name="OneBlog" component={BottomTabNavigator1} />
 		</Stack.Navigator>
 	);
 };
 
 
-//Đây được xem là nest Navigator: có BottomTabNavigator2 là một screen của Stack Navigator
-const StackNavigatorTest = () => {
-	return (
-		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="Test" component={BottomTabNavigator2} />
-			<Stack.Screen name="HomeTest" component={HomeScreen} />
-		</Stack.Navigator>
-	);
-};
 
-//Đây được xem là nest Navigator: có BottomTabNavigator2 là một screen của Stack Navigator
-const StackNavigatorTest2 = () => {
-	return (
-		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="TestStack" component={BottomTabNavigator3} />
-			<Stack.Screen name="HomeTestStack" component={HomeScreen} />
-		</Stack.Navigator>
-	);
-};
-
-
-//HAY DÙNG- Đây được xem là nest Navigator: có BottomTabNavigator2 là một screen của Stack Navigator
-const StackNavigatorTest3 = () => {
-	return (
-		<Stack.Navigator screenOptions={screenOptionStyle}>
-			<Stack.Screen name="ContactStack" component={DrawerNavigator3} options={{ headerShown:false}}/>
-			<Stack.Screen name="ContactDetailStack" component={ContactDetailScreen} />
-		</Stack.Navigator>
-	);
-};
-
-export { MainStackNavigator, ContactStackNavigator, ProductStackNavigator, StackNavigatorTest, StackNavigatorTest2, StackNavigatorTest3 };
+export { StackNavigator1, StackNavigator2, StackNavigator3, StackNavigator5 };

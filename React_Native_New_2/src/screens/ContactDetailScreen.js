@@ -4,21 +4,12 @@ import { View, StyleSheet, Text, Button } from "react-native";
 const ContactDetailScreen = ({ navigation }) => {
 	return (
 		<View style={styles.center}>
-			<Text>This is the ContactDetail Screen</Text>
-
-			{/* các nút bấm này dành cho khi App.js dùng StackNavigatorTest3 */}
-			<Button
-				title="Go to ContactDrawer"
-				onPress={() => navigation.navigate("ContactDrawer")}
-			/>
-			<Button
-				title="Go to AboutDrawer"
-				onPress={() => navigation.navigate("AboutDrawer")}
-			/>
-			
+			<Text style={styles.text}>This is the ContactDetail Screen</Text>			
 		</View>
 	);
 };
+
+export default ContactDetailScreen;
 
 const styles = StyleSheet.create({
 	center: {
@@ -26,7 +17,10 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		textAlign: "center"
-	}
+	},
+	text: {
+        fontSize: 20,
+        fontWeight:'bold',
+    }
 });
 
-export default ContactDetailScreen;

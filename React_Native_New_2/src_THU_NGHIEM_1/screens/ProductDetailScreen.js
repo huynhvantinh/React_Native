@@ -7,7 +7,7 @@ const ProductDetailScreen = ({ navigation }) => {
 	return (
 		<View style={styles.center}>
 			<Text>This is the ProductDetail Screen</Text>
-			{/* <BottomTabNavigator/> */}
+			{/* <BottomTabNavigator/> Thêm Navigator ở đây thì không thể hiện được đúng*/}
 		</View>
 	);
 };

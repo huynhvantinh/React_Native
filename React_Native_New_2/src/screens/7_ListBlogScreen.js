@@ -1,16 +1,17 @@
 import React from "react";
 import { View, StyleSheet, Text, Button } from "react-native";
 
-const ContactScreen = ({ navigation }) => {
+const ListBlogScreen = ({ navigation }) => {
 	return (
 		<View style={styles.center}>
-			<Text style={styles.text}>Contact Screen</Text>
-			<Button title="ContactDetails Screen" onPress={() => navigation.navigate("ContactDetail")} />
+			<Text style={styles.text}>7_ListBlog Screen</Text>
+			<Button title="8_OneBlog Screen" onPress={() => navigation.navigate("OneBlog")} />
 		</View>
 	);
 };
 
-export default ContactScreen;
+
+export default ListBlogScreen;
 
 const styles = StyleSheet.create({
 	center: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
 		textAlign: "center"
 	},
 	text: {
-		fontSize: 30,
-		fontWeight: "bold"
-	}
+        fontSize: 30,
+        fontWeight:'bold',
+    }
 });
