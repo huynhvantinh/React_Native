@@ -1,9 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { MainStackNavigator, ContactStackNavigator, StackNavigatorTest, StackNavigatorTest2 } from "./src/navigations/StackNavigator";
+import { MainStackNavigator, ContactStackNavigator, StackNavigatorTest, StackNavigatorTest2, StackNavigatorTest3 } from "./src/navigations/StackNavigator";
 import {BottomTabNavigator, BottomTabNavigator2} from './src/navigations/BottomTabNavigator';
-import { DrawerNavigator } from "./src/navigations/DrawerNavigator";
+import { DrawerNavigator, DrawerNavigator2, DrawerNavigator3 } from "./src/navigations/DrawerNavigator";
 
 const App = () => {
 	return (
@@ -13,9 +13,16 @@ const App = () => {
 			{/* <ContactStackNavigator/> */}
             {/* <BottomTabNavigator/> */}
             {/* <BottomTabNavigator2/> */}
-            {/* <StackNavigatorTest /> */}
-            <StackNavigatorTest2 />
             {/* <DrawerNavigator /> */}
+            {/* <DrawerNavigator2 /> */}
+            {/* <DrawerNavigator3 /> */}
+
+            {/* <StackNavigatorTest /> */}
+            {/* <StackNavigatorTest2 /> */}
+            
+            {/* Hay Dùng - Cách dưới mới là hay dùng*/}
+            <StackNavigatorTest3 />
+            
 		</NavigationContainer>
 	);
 };

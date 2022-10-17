@@ -1,5 +1,5 @@
 {
-  "name": "react_native_new",
+  "name": "react_native_new_2",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -17,10 +17,10 @@
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
     "react-native": "0.69.6",
-    "react-native-gesture-handler": "~2.5.0",
-    "react-native-reanimated": "~2.9.1",
     "react-native-safe-area-context": "4.3.1",
-    "react-native-screens": "~3.15.0"
+    "react-native-screens": "~3.15.0",
+    "react-native-gesture-handler": "~2.5.0",
+    "react-native-reanimated": "~2.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
