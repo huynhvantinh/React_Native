@@ -1,5 +1,5 @@
 import React from "react";
-import { View, SafeAreaView, StyleSheet } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { WebView } from "react-native-webview";
 
 const HocTiengAnh = () => {
@@ -18,6 +18,12 @@ const HocTiengAnh = () => {
                     }}
                 />
             </SafeAreaView>
+
+            {/* Thêm phần ở dưới để thấy rõ những khi dùng WWebview cùng với Navigation thì mặc định toàn màn hình có màu xám, đó là lí do mặc định
+            thanh status bar có màu xám */}
+            {/* <SafeAreaView style={{ flex:1 }}>
+                <Text>Hihi</Text>
+            </SafeAreaView> */}
         </View>
     );
 };
