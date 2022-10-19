@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures";
 
+/**
+ * https://dev-yakuza.posstree.com/en/react-native/react-native-swipe-gestures/
+ * https://github.com/glepur/react-native-swipe-gestures
+ */
+
 class SwipeEvent extends Component {
 	constructor(props) {
 		super(props);

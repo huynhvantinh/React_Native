@@ -12,7 +12,7 @@ import OneCategoryBlogScreen from "../screens/6_OneCategoryBlogScreen";
 import ListBlogScreen from "../screens/7_ListBlogScreen";
 import OneBlogScreen from "../screens/8_OneBlogScreen";
 
-import { DrawerNavigator2, DrawerNavigator3 } from "./DrawerNavigator";
+import { DrawerNavigator2, DrawerNavigator3, DrawerNavigator6, DrawerNavigatorRIGHT7 } from "./DrawerNavigator";
 import { BottomTabNavigator1 } from "./BottomTabNavigator";
 
 const Stack = createNativeStackNavigator();
@@ -88,6 +88,60 @@ const StackNavigator5 = () => {
 	);
 };
 
+//Dùng 2 Drawer trái và phải: kết hợp cả ba Navigator là Stack, Drawer và BottomTab (trong đó ở phần BottomTab có ứng dụng sự kiện swipe)
+//Đến Screen OneBlog thì có BottomTab Navigator
+const StackNavigator6 = () => {
+	return (
+		<Stack.Navigator screenOptions={screenOptionStyle}>
+			<Stack.Screen name="NestedDrawer" component={DrawerNavigator6} options={{ headerShown:false }}/>
+			<Stack.Screen name="OneCategory" component={OneCategoryScreen} />
+			<Stack.Screen name="ListProduct" component={ListProductScreen} />
+			<Stack.Screen name="OneProduct" component={OneProductScreen} />
+			{/* HAY - thêm ContactDetailScreen vô Stack nhưng lại được truy cập đến từ Screen Contact bên trong DrawerNavigator1 */}
+			<Stack.Screen name="ContactDetail" component={ContactDetailScreen} />
+
+			{/* Thêm các trang liên quan đến Blog vào trong stack */}
+			{/* <Stack.Screen name="AllCategoryBlog" component={AllCategoryBlogScreen} /> KHÓA LẠI VẪN KHÔNG ĐỔI */}
+			<Stack.Screen name="OneCategoryBlog" component={OneCategoryBlogScreen} />
+			<Stack.Screen name="ListBlog" component={ListBlogScreen} />
+			<Stack.Screen name="OneBlog" component={BottomTabNavigator1} />
+		</Stack.Navigator>
+	);
+};
 
 
-export { StackNavigator1, StackNavigator2, StackNavigator3, StackNavigator5 };
+const screenOptionStyle7 = {
+	headerStyle: {
+		backgroundColor: "#9AC4F8"
+	},
+	headerTintColor: "white",
+	headerBackTitle: "Back",
+	// presentation:"modal" //Có dòng này thì tất cả các Screen trong stack Navigator đều mở lên dưới dạng modal
+};
+//Dùng 2 Drawer trái và phải: kết hợp cả ba Navigator là Stack, Drawer và BottomTab (trong đó ở phần BottomTab có ứng dụng sự kiện swipe)
+const StackNavigator7 = () => {
+	return (
+		<Stack.Navigator screenOptions={screenOptionStyle7}>
+			<Stack.Screen name="NestedDrawerRIGHT" component={DrawerNavigatorRIGHT7} options={{ headerShown:false }}/>
+			<Stack.Screen name="OneCategory" component={OneCategoryScreen} 
+				options={{ 
+					presentation:"modal"
+				}}
+			/>
+			<Stack.Screen name="ListProduct" component={ListProductScreen}/>
+			<Stack.Screen name="OneProduct" component={OneProductScreen} />
+			{/* HAY - thêm ContactDetailScreen vô Stack nhưng lại được truy cập đến từ Screen Contact bên trong DrawerNavigator1 */}
+			<Stack.Screen name="ContactDetail" component={ContactDetailScreen} />
+
+			{/* Thêm các trang liên quan đến Blog vào trong stack */}
+			{/* <Stack.Screen name="AllCategoryBlog" component={AllCategoryBlogScreen} /> KHÓA LẠI VẪN KHÔNG ĐỔI */}
+			<Stack.Screen name="OneCategoryBlog" component={OneCategoryBlogScreen} />
+			<Stack.Screen name="ListBlog" component={ListBlogScreen} />
+			<Stack.Screen name="OneBlog" component={BottomTabNavigator1} />
+		</Stack.Navigator>
+	);
+};
+
+
+
+export { StackNavigator1, StackNavigator2, StackNavigator3, StackNavigator5, StackNavigator6, StackNavigator7 };

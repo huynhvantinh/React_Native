@@ -9,7 +9,7 @@ import global_data from "./src/global_data";
 
 
 /**
- * App_17.jsThử nghiệm global data
+ * App_17.js - Thử nghiệm global data
  */
 
 const navigator = createStackNavigator(

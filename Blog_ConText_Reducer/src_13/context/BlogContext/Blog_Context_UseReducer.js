@@ -33,14 +33,15 @@ function reducer(blogsState, action){
     
         case EDIT_BLOG:
             console.log("Vô EDIT_BLOG: " + action.payload.edited_id);
-            /*OK const id_edited_blog = blogsState.findIndex((blog => blog.id === action.payload.edited_id));
+            /*OK - Giống cách của Maximilian (Xem thêm Video 019 Bài 8 của Maximilian để xem cách Update trong Reducer - có vẻ Max hơi dài dòng trong phần Update của Reducer)
+            const id_edited_blog = blogsState.findIndex((blog => blog.id === action.payload.edited_id));
             blogsState[id_edited_blog].tieuDe = action.payload.newTieuDe;
             blogsState[id_edited_blog].noiDung = action.payload.newNoiDung;
             return [...blogsState];*/
             return blogsState.map((blog)=>{
                 /*Ok if(blog.id === action.payload.edited_id){
                     return {...blog, tieuDe:action.payload.newTieuDe, noiDung: action.payload.newNoiDung}; //OK
-                    // return action.payload; //KHÔGN OK (nếu đổi lại các key của payload thì được - vì suy cho cùng action.payload cũng giống một đối tượng blog - nhưng nếu đối tượng blog phức tạp hơn thì cách này ko đúng nữa)
+                    // return action.payload; //KHÔNG OK (nếu đổi lại các key của payload thì được - vì suy cho cùng action.payload cũng giống một đối tượng blog - nhưng nếu đối tượng blog phức tạp hơn thì cách này ko đúng nữa)
                 }
                 return blog;*/
                 return (blog.id === action.payload.edited_id) ? {...blog, tieuDe:action.payload.newTieuDe, noiDung: action.payload.newNoiDung} : blog;

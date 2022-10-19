@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useLayoutEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity} from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import axios from "axios";
@@ -14,6 +14,7 @@ const IndexScreen = ({navigation}) => {
 
     //CÁCH 0 - OK - CHỌN CÁCH NÀY
     useEffect(() => {
+    // useLayoutEffect(() => {
         console.log("Trang Index Mount- Load API");   
         valueBlogContext.loadBlogsAPI();
 

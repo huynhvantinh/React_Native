@@ -13,6 +13,8 @@ const AboutScreen = ({navigation}) => {
 			<Button title="AllCategoryDrawer" onPress={() => navigation.navigate("AllCategoryDrawer")} />
 			<Button title="AllCategoryBlogDrawer" onPress={() => navigation.navigate("AllCategoryBlogDrawer")} />
 			<Button title="ListProduct" onPress={() => navigation.navigate("ListProduct")} />
+			<Button title="Open Drawer" onPress={() => navigation.openDrawer() } />
+			<Button title="Open Parent Drawer - Bị lỗi khi mở trang About từ Drawer Cha" onPress={() => navigation.getParent().openDrawer() } />			
 		</View>
 	);
 };

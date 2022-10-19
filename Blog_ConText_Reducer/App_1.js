@@ -7,7 +7,7 @@ import ShowScreen from "./src/screens/ShowScreen";
 import CreateScreen from "./src/screens/CreateScreen";
 
 /**
- * Dùng với src_1 - Copy Bài của Stephen ở Cuối bài 12, chưa dùng đến API
+ * App_1.js - Dùng với src_1 - Copy Bài của Stephen ở Cuối bài 12, chưa dùng đến API
  */
 
 
@@ -20,7 +20,7 @@ const navigator = createStackNavigator(
 	{
 		initialRouteName: "Index",
 		defaultNavigationOptions: {
-			title: "Blogs"
+			title: "Blogs (Trang Index)"
 		}
 	}
 );
@@ -34,3 +34,23 @@ export default () => {
 		</Provider>
 	);
 };
+
+//OK
+/*export default () => {
+	return (
+		<Provider>
+			{React.createElement(createAppContainer(navigator), null)}
+		</Provider>
+	);
+};*/
+
+
+//OK
+/*export default () => {
+	return (
+		<Provider>
+			{React.createElement(App, null)}
+		</Provider>
+	);
+};*/
+

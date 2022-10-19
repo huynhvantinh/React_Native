@@ -3,7 +3,10 @@ import { View, Text, SafeAreaView } from "react-native";
 import GestureRecognizer, { swipeDirections } from "react-native-swipe-gestures";
 import { useNavigation } from '@react-navigation/native';
 
-
+/**
+ * https://dev-yakuza.posstree.com/en/react-native/react-native-swipe-gestures/
+ * https://github.com/glepur/react-native-swipe-gestures
+ */
 
 function Swipe_Wraper ({children, screen_left, screen_right}) {
     const navigation = useNavigation();

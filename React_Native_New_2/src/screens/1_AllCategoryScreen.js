@@ -6,6 +6,8 @@ const AllCategoryScreen = ({ navigation }) => {
 		<View style={styles.center}>
 			<Text style={styles.text}>1_AllCategory Screen</Text>
 			<Button title="2_OneCategory Screen" onPress={() => navigation.navigate("OneCategory")} />
+			<Button title="Open Drawer" onPress={() => navigation.openDrawer() } />			
+			<Button title="Open Parent Drawer" onPress={() => navigation.getParent().openDrawer() } />			
 		</View>
 	);
 };

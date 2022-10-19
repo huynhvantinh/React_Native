@@ -11,8 +11,8 @@ import EditScreen from "./src/screens/EditScreen";
 import {Provider as BlogProvider} from "./src/context/BlogContext/Blog_Context_UseReducer";
 
 
-/**
- * Dùng với src_15 - Tự làm - Nội dung xoay quanh bài 12, thử nghiệm Context kết hợp useReducer theo kiểu tách nhỏ ra và không truyền function dispatch 
+/** App_15_API
+ * Dùng với src_15_API - Tự làm - Nội dung xoay quanh bài 12, thử nghiệm Context kết hợp useReducer theo kiểu tách nhỏ ra và không truyền function dispatch 
  * xuống dưới và đưa các event listener từ component con được gọi bên trong các function ở trên Context/Provider luôn
  * - Cách làm này dễ maintain hơn vì tập trung mọi xử lí logic ở trong Context/Provider
  * - Cách 7 gọn hơn cách 8, 9 và 10
