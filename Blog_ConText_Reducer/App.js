@@ -13,6 +13,10 @@ import {
 
 /**
  * App_19.js thử nghiệm KeyboardAvoidingView
+ * 
+ * //Tham khảo thêm về nút done: 
+ * https://stackoverflow.com/questions/33821030/how-to-add-done-button-on-the-number-keypad-using-react-native/65761104#65761104
+ * https://stackoverflow.com/questions/33995950/how-to-show-done-button-above-number-pad-keyboard-using-react-native
  */
 
 const KeyboardAvoidingComponent = () => {
@@ -23,6 +27,13 @@ const KeyboardAvoidingComponent = () => {
 					<Text style={styles.header}>Header</Text>
 					<TextInput
 						placeholder="Username"
+						// returnKeyType="done" //Chỉ có tác dụng với bán phím số keyboardType="number-pad"
+						style={styles.textInput}
+					/>
+					<TextInput
+						placeholder="SDT"
+						keyboardType="number-pad"
+						returnKeyType="done"
 						style={styles.textInput}
 					/>
 					<View style={styles.btnContainer}>

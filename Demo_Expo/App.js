@@ -1,41 +1,90 @@
-import React from "react";
-import { View, StyleSheet, SafeAreaView } from "react-native";
-import { WebView } from "react-native-webview";
+import { Camera } from "expo-camera";
+import { Audio } from "expo-av";
+import { View, Button, SafeAreaView } from "react-native";
+import { launchCameraAsync, useCameraPermissions, useMicroPhonePermissions, PermissionStatus } from 'expo-image-picker';
 
-/**
- * App_CHON_cho_TOBE_app.js
- * Cách làm này OK cho TOBE.EDU.VN - đơn giản không cần phải cấu hình hình cho status bar
- * 
- */
+export default () => {
+    const [cameraPermissionInformation, requestPermission] = useCameraPermissions();
+    const [microPhonePermissionInformation, requestpermission_MIC] = useMicroPhonePermissions();
 
-const HocTiengAnh = () => {
-    console.log("Chào react native nha");
+    async function verifyPermissions() {
+        console.log(cameraPermissionInformation.status);
+        if (cameraPermissionInformation.status === PermissionStatus.UNDETERMINED) {
+            const permissionResponse = await requestPermission();
+
+            return permissionResponse.granted;
+        }
+
+        if (cameraPermissionInformation.status === PermissionStatus.DENIED) {
+            Alert.alert("Insufficient Permissions!", "You need to grant camera permissions to use this app.");
+            return false;
+        }
+
+        return true;
+    }
+
+    async function takeImageHandler() {
+        const hasPermission = await verifyPermissions();
+
+        if (!hasPermission) {
+            return;
+        }
+
+        const image = await launchCameraAsync({
+            allowsEditing: true,
+            aspect: [16, 9],
+            quality: 0.5
+        });
+
+        //setPickedImage(image.uri);
+        //onTakeImage(image.uri);
+    }
+
+
+    async function verifyPermissions_MIC() {
+        console.log(microPhonePermissionInformation.status);
+        if (microPhonePermissionInformation.status === PermissionStatus.UNDETERMINED) {
+            const permissionResponse = await requestpermission_MIC();
+
+            return permissionResponse.granted;
+        }
+
+        if (microPhonePermissionInformation.status === PermissionStatus.DENIED) {
+            Alert.alert("Insufficient Permissions!", "You need to grant camera permissions to use this app.");
+            return false;
+        }
+
+        return true;
+    }
+
+    async function reacordHandler_MIC() {
+        const hasPermission = await verifyPermissions_MIC();
+
+        if (!hasPermission) {
+            return;
+        }
+
+    }
+
+
     return (
-        /*OK <SafeAreaView style={styles.webContent}>            
-            <WebView
-                source={{
-                    uri: 'https://tobe.edu.vn/'
-                }}
-            />            
-        </SafeAreaView>*/
-
-        //Cái này thì đảm bảo chắc chắn rằng phần ngoài SafeAreaView cũng chính là status bar có nền màu trắng
-        <View style={[styles.webContent, {backgroundColor:"#FFF"}]}>
-            <SafeAreaView style={styles.webContent}>
-                <WebView
-                    source={{
-                        uri: 'https://tobe.edu.vn/'
+        <SafeAreaView>
+            <View>
+                <Button
+                    onPress={() => {
+                        Camera.requestCameraPermissionsAsync().then((status) => {
+                            // audio permission request is only shown for half a second in build mode and is automatically denied permission
+                            Audio.requestPermissionsAsync().then((status) => {
+                                console.log("ok");
+                            });
+                        });
                     }}
+                    title="Test"
                 />
-            </SafeAreaView>
-        </View>
+
+                <Button title="Take Picture" onPress={takeImageHandler}/>
+                <Button title="Recorde" onPress={reacordHandler_MIC}/>
+            </View>
+        </SafeAreaView>
     );
 };
-
-const styles = StyleSheet.create({
-    webContent: {
-        flex:1,
-    }
-});
-
-export default HocTiengAnh;

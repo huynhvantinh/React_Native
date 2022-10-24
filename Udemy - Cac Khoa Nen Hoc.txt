@@ -1,0 +1,59 @@
+//////////////////
+////////////////// Cách khóa học để hiểu về API, Token, JWT và OAuth
+//////////////////
+
+- Viết RESTFUL API trên PHP thuần:
+https://www.udemy.com/course/php-apis/
+https://www.udemy.com/course/create-a-rest-api-using-basic-php-with-token-authentication/
+
+- Cách sử dụng Socialite của Laravel để sử dụng tính năng social login từ mạng xã hội như Google, Facebook:
+https://www.udemy.com/course/how-to-add-social-media-login-to-php-web-apps/
+https://www.udemy.com/course/laravel-56-masterclass-social-media-login-integration/
+https://www.udemy.com/course/learn-oauth-2/
+
+- Cơ bản về OAuth và không cần nền tảng nào cả:
+https://www.udemy.com/course/oauth-2-with-openid-crash-course-for-absolute-beginners/
+
+- Chuyên sâu OAuth2.0 nhưng viết bằng Framework Spring:
+https://www.udemy.com/course/enterprise-oauth-for-developers/
+https://www.udemy.com/course/spring-security-zero-to-master/
+https://www.udemy.com/course/spring-security-fundamentals/
+https://www.udemy.com/course/oauth2-in-spring-boot-applications/
+
+- Kết hợp Node và React có dùng OAuth - Stephen:
+https://www.udemy.com/course/node-with-react-fullstack-web-development/
+
+- Kết hợp Laravel và React có dùng Passport (OAuth2.0):
+https://www.udemy.com/course/react-with-laravel-build-pwa-ecommerce-project/
+https://www.udemy.com/course/react-with-laravel-build-complete-project/
+
+- Chuyên về API của Laravel có dùng Passport (OAuth2.0):
+https://www.udemy.com/course/restful-api-with-laravel-php-homestead-passport-hateoas/
+
+
+//////////////////
+////////////////// Cách dự án PHẢI HỌC
+//////////////////
+
+- Dự Án Ecommerce viết bằng Laravel có cả JWT & Laravel Passport, Product Search Option:
+https://www.udemy.com/course/laravel-framework-build-professional-ecommerce/
+https://www.udemy.com/course/laravel-advance-ecommerce-project/
+
+- Dự Án Ecommerce có vẻ như là trang thương mại điện tử nhiều người bán, có Advance Product Search Option:
+https://www.udemy.com/course/laravel-multi-vendor-ecommerce-project/
+
+
+//////////////////
+////////////////// Cách dự án CẦN HỌC:
+//////////////////
+
+- Dự Án Booking viết bằng Laravel:
+https://www.udemy.com/course/laravel-online-hotel-booking-platform-a-to-z/
+
+- Dự Án Quản Lý Kho Laravel:
+https://www.udemy.com/course/laravel-build-complete-inventory-management-system/
+https://www.udemy.com/course/complete-inventory-management-system-with-laravel/
+
+- Dự Án Quản Lý Trường Học:
+https://www.udemy.com/course/laravel-advanced-course-build-school-management-system/
+
