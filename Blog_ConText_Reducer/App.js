@@ -1,73 +1,53 @@
-import React from "react";
-import {
-	View,
-	KeyboardAvoidingView,
-	TextInput,
-	StyleSheet,
-	Text,
-	Platform,
-	TouchableWithoutFeedback,
-	Button,
-	Keyboard
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import { SafeAreaView, Text, Button, StyleSheet } from "react-native";
 
 /**
- * App_19.js thử nghiệm KeyboardAvoidingView
- * 
- * //Tham khảo thêm về nút done: 
- * https://stackoverflow.com/questions/33821030/how-to-add-done-button-on-the-number-keypad-using-react-native/65761104#65761104
- * https://stackoverflow.com/questions/33995950/how-to-show-done-button-above-number-pad-keyboard-using-react-native
+ * App_20.js thử nghiệm State
  */
 
-const KeyboardAvoidingComponent = () => {
+const DemoState = () => {
+	console.log("Vao DemoState");
+	const [state1, setstate1] = useState("Hello");
+	const [state2, setstate2] = useState(5);
+	const [state3, setstate3] = useState(99);
+
+	// setTimeout(() => {
+	// 	console.log("hihi");
+	// 	setstate3(100)
+	// }, 1000);
+
+	function changeStateHandler(){
+		//Nếu để ở đây thì hai lệnh setState được thực thi thành MỘT lần (đưa vào trong một BATCH) và chỉ có MỘT lần rerender lại component
+		setstate1("Xin Chào");
+		setstate2(state2+1);
+		setTimeout(() => {
+			//Nếu để ở đây thì hai lệnh setState được thực thi thành hai lần riêng và có hai lần rerender lại component
+			/*setstate1("Xin Chào");
+			setstate2(state2+1);*/
+		}, 5000);
+		console.log(`State1 = ${state1} _____ State2 = ${state2}`);
+	}
+
+	useEffect(() => {
+		// console.log("Vô useEffect");
+		return () => {
+			
+		};
+	// }, [changeStateHandler]);
+	// }, []);
+	}, [state3, changeStateHandler]);
+
 	return (
-		<KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container} >
-			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-				<View style={styles.inner}>
-					<Text style={styles.header}>Header</Text>
-					<TextInput
-						placeholder="Username"
-						// returnKeyType="done" //Chỉ có tác dụng với bán phím số keyboardType="number-pad"
-						style={styles.textInput}
-					/>
-					<TextInput
-						placeholder="SDT"
-						keyboardType="number-pad"
-						returnKeyType="done"
-						style={styles.textInput}
-					/>
-					<View style={styles.btnContainer}>
-						<Button title="Submit" onPress={() => null} />
-					</View>
-				</View>
-			</TouchableWithoutFeedback>
-		</KeyboardAvoidingView>
+		<SafeAreaView styles={{ flex:1, margin:20 }}>
+			<Text>Demo State</Text>
+			<Text>State1 = {state1}</Text>
+			<Text>State2 = {state2}</Text>
+			<Button title="Change State" onPress={changeStateHandler}/>
+		</SafeAreaView>
 	);
 };
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1
-	},
-	inner: {
-		padding: 24,
-		flex: 1,
-		justifyContent: "space-around"
-	},
-	header: {
-		fontSize: 36,
-		marginBottom: 48
-	},
-	textInput: {
-		height: 40,
-		borderColor: "#000000",
-		borderBottomWidth: 1,
-		marginBottom: 36
-	},
-	btnContainer: {
-		backgroundColor: "white",
-		marginTop: 12
-	}
 });
 
-export default KeyboardAvoidingComponent;
+export default DemoState;

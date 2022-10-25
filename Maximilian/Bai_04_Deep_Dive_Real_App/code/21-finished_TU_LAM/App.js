@@ -43,7 +43,7 @@ export default function App() {
         console.log("Vo Start New Game");
 		setUserNumber(null);
 		setGuessRounds(0);
-        setGameIsOver(false); //Mỗi laabnf start new game thì cho mọi thứ quay về như ban đầu
+        setGameIsOver(false); //Mỗi lần start new game thì cho mọi thứ quay về như ban đầu
 	}
 
 	let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
@@ -52,7 +52,8 @@ export default function App() {
 		screen = (<GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />);
 	}
 
-	if (gameIsOver && userNumber) {
+	// if (gameIsOver && userNumber) { //OK
+	if (gameIsOver) { //OK - Với cách tự làm này thì ở đây không cần đến biến userNumber cũng OK
         console.log(`Vo gameIsOver && userNumber: gameIsOver = ${gameIsOver} _____ userNumber = ${userNumber}`);
 		screen = (<GameOverScreen userNumber={userNumber} roundsNumber={guessRounds} onStartNewGame={startNewGameHandler} /> );
 	}

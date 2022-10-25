@@ -33,6 +33,7 @@ function StartGameScreen({ onPickNumber }) {
 					}
 				]
 			);
+			console.log("So nhap vao khong hop le");
 			return;
 		}
 

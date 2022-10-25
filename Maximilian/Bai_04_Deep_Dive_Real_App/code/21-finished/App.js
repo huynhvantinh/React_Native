@@ -10,6 +10,7 @@ import GameOverScreen from './screens/GameOverScreen';
 import Colors from './constants/colors';
 
 export default function App() {
+  console.log("================App================");
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
   const [guessRounds, setGuessRounds] = useState(0);
@@ -23,9 +24,27 @@ export default function App() {
     return <AppLoading />;
   }
 
+  /* ORIGINAL - OK 
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber);
     setGameIsOver(false);
+  }*/
+
+  //Thí nghiệm về BATCH
+  function pickedNumberHandler(pickedNumber) {
+    //Khi không để trong setTimeout thì tất cả các lệnh setState được đưa vào một BATCH và được thực thi một lần rồi mới rerender, nên chỉ có một lần rerender dù cho có nhiều lệnh setSate
+    setUserNumber(pickedNumber);
+    setGameIsOver(false);
+
+    //Nhưng khi đưa vào trong setTimeout thì sẽ là 2 lần rerender vì có hai lệnh setSate
+    /*setTimeout(() => {
+      setUserNumber(pickedNumber);
+      setGameIsOver(false);
+    }, 3000);*/
+    /*setUserNumber(pickedNumber);
+    setTimeout(() => {
+      setGameIsOver(false);
+    }, 3000);*/
   }
 
   function gameOverHandler(numberOfRounds) {

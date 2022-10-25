@@ -9,14 +9,10 @@ import PrimaryButton from "../components/ui/PrimaryButton";
 import Title from "../components/ui/Title";
 import GuessLogItem from "../components/game/GuessLogItem";
 
-/**
- * GameScreen_CACH_1_OK
- */
-
 function generateRandomBetween(min, max, exclude) {
 	// const rndNum = Math.floor(Math.random() * (max - min)) + min; //Dùng cái này nếu để const MAX = 100;
 	const rndNum = Math.floor(Math.random() * (max - min + 1)) + min; //OK
-    console.log(`Vo HAM tao so ngau nhien: min = ${min} _____ max = ${max} _____ exclude = ${exclude} _____ rndNum = ${rndNum}`);
+    console.log(`Vo HAM Tao So Ngau Nhien: min = ${min} _____ max = ${max} _____ exclude = ${exclude} _____ rndNum = ${rndNum}`);
 	if (rndNum === exclude) {
         console.log("TRUNG SO");
 		return generateRandomBetween(min, max, exclude);
@@ -25,58 +21,66 @@ function generateRandomBetween(min, max, exclude) {
 	}
 }
 
-const MIN = 1;
-const MAX = 99;
+const MIN = 31;
+const MAX = 32;
 
 let minBoundary = MIN;
 let maxBoundary = MAX;
 
+//CÁCH 2 làm theo kiểu set giá trị initalGuess trong useEffect để tránh đoạn lệnh này thực thi nhiều lần: const initialGuess = generateRandomBetween(MIN, MAX, userNumber);/
+//Có thể làm cách khác nữa là dùng useMemory hook (xem video 022 Bài 04 của Maximilian lúc 10p:00s)
+
 function GameScreen({ userNumber, onGameOver }) {
-	const initialGuess = generateRandomBetween(MIN, MAX, userNumber);//OK
+	// const initialGuess = generateRandomBetween(MIN, MAX, userNumber);//OK - Nhung trong CÁCH 2 không dùng đến vì Cách 2 làm theo kiểu set giá trị initalGuess trong useEffect để tránh đoạn lệnh này thực thi nhiều lần
 	// const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber);//KHÔNG OK - Sẽ có lúc bị lỗi vì tạo ra lỗi chạy vô số lần hàm generateRandomBetween
-    console.log(`********** Vo GameScreen: initialGuess = ${initialGuess}`);
-	const [currentGuess, setCurrentGuess] = useState(initialGuess);
-	const [guessRounds, setGuessRounds] = useState([initialGuess]);
+	// console.log(`********** Vo GameScreen: initialGuess = ${initialGuess}`);
+	const [currentGuess, setCurrentGuess] = useState(-1); //set lại initial state trong useEffect cho lần đầu tiên
+	const [guessRounds, setGuessRounds] = useState([]); //sửa lại thành mảng rỗng
+	console.log(`********** Vo GameScreen: currentGuess = ${currentGuess}`);
 	console.log("guessRounds",guessRounds);
 
 	useEffect(() => {
         console.log(`Vo useEffect xet onGameOver: currentGuess= ${currentGuess} === userNumber= ${userNumber}`);
 		if (currentGuess === userNumber) {
 			// setTimeout(() => {
-            onGameOver(guessRounds.length);
+                onGameOver(guessRounds.length);
             // }, 4000);
-			// minBoundary = MIN; //không để trong useEffect bên dưới thì để ở đây cũng được
-			// maxBoundary = MAX; //không để trong useEffect bên dưới thì để ở đây cũng được
 		}
 	}, [currentGuess, userNumber, onGameOver]);
 
-	//có đoạn này là để khi restart lại game thì vẫn đảm bảo minBoundary và maxBoundary có giá trị 1 và 99, để người chơi có thể chơi lại được
 	useEffect(() => {
         console.log("GameScreen MOUNT");
 		minBoundary = MIN;
 		maxBoundary = MAX;
+
+		//CÁCH 2 làm theo kiểu set giá trị initalGuess trong useEffect để tránh đoạn lệnh này thực thi nhiều lần: const initialGuess = generateRandomBetween(MIN, MAX, userNumber);/
+		//setTimeout(() => {
+			const initialGuess = generateRandomBetween(MIN, MAX, userNumber);
+			// setCurrentGuess(generateRandomBetween(MIN, MAX, userNumber));//
+			// setGuessRounds([currentGuess]);//KHÔNG OK - sẽ lấy giá trị cũ (tức là giá trị hiện tại) chứ không phải giá trị mới
+			setCurrentGuess(initialGuess);
+			setGuessRounds([initialGuess]);
+		//}, 4000);
         return ()=>{
             console.log("GameScreen UN_MOUNT");
         }
 	}, []);
 
     //////////
-    console.log(`1: MinBoundary = ${minBoundary} ===== MaxBoundary = ${maxBoundary}`);
+    console.log(`1: MinB = ${minBoundary} - MaxB = ${maxBoundary}`);
     useEffect(() => {
-        console.log(`2: MinBoundary = ${minBoundary} ===== MaxBoundary = ${maxBoundary}`);
+        console.log(`2: MinB = ${minBoundary} - MaxB = ${maxBoundary}`);
     });
     //////////
 
 	function nextGuessHandler(direction) {
-        console.log(`++++++++++ Vo nextGuessHandler: Min = ${minBoundary} _____ Max = ${maxBoundary} _____ currentGuess = ${currentGuess}`);
+        console.log(`Vo nextGuessHandler: Min = ${minBoundary} _____ Max = ${maxBoundary} _____ currentGuess = ${currentGuess}`);
 		// direction => 'lower', 'greater'
 		if (
 			(direction === "lower" && currentGuess < userNumber) ||
 			(direction === "greater" && currentGuess > userNumber)
 		) {
-			Alert.alert("Don't lie!", "You know that this is wrong...", [
-				{ text: "Sorry!", style: "cancel" }
-			]);
+			Alert.alert("Don't lie!", "You know that this is wrong...", [ { text: "Sorry!", style: "cancel" } ]);
 			return;
 		}
 
@@ -86,11 +90,7 @@ function GameScreen({ userNumber, onGameOver }) {
 			minBoundary = currentGuess + 1;
 		}
 
-		const newRndNumber = generateRandomBetween(
-			minBoundary,
-			maxBoundary,
-			currentGuess
-		);
+		const newRndNumber = generateRandomBetween( minBoundary, maxBoundary, currentGuess);
         console.log(`3: Min = ${minBoundary} _____ Max = ${maxBoundary} _____ currentGuess = ${currentGuess} _____ newRndNumber = ${newRndNumber}`);
 		setCurrentGuess(newRndNumber);
 		setGuessRounds((prevGuessRounds) => [newRndNumber, ...prevGuessRounds]);
